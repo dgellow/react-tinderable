@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 10px 20px;
+
+}
+
+.content {
+    margin:auto;
+    padding:20px;
+    width:600px;
+}
+
+@media (max-width: 768px) {
+    .content {
+        margin: auto;
+        padding: 20px 40px;
+        width: auto;
+    }
+}

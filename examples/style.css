@@ -4,7 +4,6 @@ body {
     font-family: sans-serif;
     text-align: center;
     max-width: 800px;
-    overflow: hidden;
 }
 
 @media (min-width: 801px) {
@@ -17,8 +16,16 @@ img {
     width: 100%;
 }
 
-.content {
+li {
+    list-style: none;
+}
+
+#master-root {
     position: relative;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 900px;
+    overflow: hidden;
 }
 
 .card {

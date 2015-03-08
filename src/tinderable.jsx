@@ -85,7 +85,7 @@ var DraggableCard = React.createClass({
     },
 
     resetPosition: function() {
-        var screen = document.getElementsByTagName('body')[0],
+        var screen = document.getElementById('master-root'),
             card = this.getDOMNode();
 
         var initialPosition = {
@@ -115,7 +115,7 @@ var DraggableCard = React.createClass({
             });
         },
         panend: function(ev) {
-            var screen = document.getElementsByTagName('body')[0],
+            var screen = document.getElementById('master-root'),
                 card = this.getDOMNode();
 
             if (this.state.x < -50) {

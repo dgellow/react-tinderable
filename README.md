@@ -14,8 +14,12 @@ In your javascript, require `react-tinderable` and render a `Tinderable` compone
 var React = require('react'),
     Tinderable = require('react-tinderable');
 
+var data = [
+  {title: '', text: '', id: '', image: ''}
+];
+
 React.render(
-    <Tinderable />,
+    <Tinderable initialCardsData={data} />,
     document.body
 );
 ```

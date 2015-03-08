@@ -32,5 +32,5 @@ var cardsData = [
     React.render(
             <Tinderable initialCardsData={cardsData} />,
 
-    document.getElementsByClassName('master-root')[0]
+    document.getElementById('master-root')
 );

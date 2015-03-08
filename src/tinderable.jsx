@@ -13,16 +13,28 @@ var Card = React.createClass({
         };
     },
 
-    componentDidMount: function() {
-        var screen = document.getElementsByTagName('body')[0],
-            card = this.getDOMNode();
-        var initialPosition = {
-            x: Math.round((screen.offsetWidth - card.offsetWidth) / 2),
-            y: Math.round((screen.offsetHeight - card.offsetHeight) / 2)
-        };
+    setInitialPosition: function() {
+        var screen = document.getElementById('master-root'),
+            card = this.getDOMNode(),
+
+            initialPosition = {
+                x: Math.round((screen.offsetWidth - card.offsetWidth) / 2),
+                y: Math.round((screen.offsetHeight - card.offsetHeight) / 2)
+            };
+
         this.setState({
             initialPosition: initialPosition
         });
+    },
+
+    componentDidMount: function() {
+        this.setInitialPosition();
+
+        window.addEventListener('resize', this.setInitialPosition);
+    },
+
+    componentWillUnmount: function() {
+        window.removeEventListener('resize', this.setInitialPosition);
     },
 
     render: function() {
@@ -161,12 +173,15 @@ var DraggableCard = React.createClass({
         }, this);
 
         this.resetPosition();
+        window.addEventListener('resize', this.resetPosition);
     },
 
     componentWillUnmount: function() {
 	this.hammer.stop();
 	this.hammer.destroy();
 	this.hammer = null;
+
+        window.removeEventListener('resize', this.resetPosition);
     },
 
     render: function() {

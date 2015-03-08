@@ -40,5 +40,9 @@
     "react-tools": "^0.12.2",
     "reactify": "^1.0.0",
     "watchify": "^2.3.0"
+  },
+  "dependencies": {
+    "hammerjs": "^2.0.4",
+    "merge": "^1.2.0"
   }
 }

@@ -148,15 +148,15 @@ var DraggableCard = React.createClass({
         this.hammer = new Hammer.Manager(this.getDOMNode());
         this.hammer.add(new Hammer.Pan({threshold: 0}));
 
-        var events = new Map([
+        var events = [
             ['panstart panend pancancel panmove', this.handlePan],
             ['swipestart swipeend swipecancel swipemove',
              this.handleSwipe]
-        ]);
+        ];
 
-        events.forEach(function(value, key) {
-            if (value) {
-                this.hammer.on(key, value);
+        events.forEach(function(data) {
+            if (data[0] && data[1]) {
+                this.hammer.on(data[0], data[1]);
             }
         }, this);
 

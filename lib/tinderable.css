@@ -1,0 +1,36 @@
+/* Slidable component */
+.slidable {
+    position: relative;
+}
+
+/* Right and left */
+.slidable__right, .slidable__left {
+    position: absolute;
+    width: 10%;
+    z-index: 999;
+    top: 80px;
+}
+
+.slidable__right {
+    right: -60px;
+}
+
+.slidable__left {
+    left: -50px;
+}
+
+/* Slides */
+.slidable__slides-wrapper {
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    transform: translate3d(0, 0, 0);
+}
+
+.slidable__slides__track {
+    position: relative;
+    display: block;
+    transform: translate3d(0, 0, 0);
+}

@@ -46,6 +46,8 @@ var Card = React.createClass({
         );
 
         var style = merge({
+            msTransform: initialTranslate,
+            WebkitTransform: initialTranslate,
             transform: initialTranslate,
             zIndex: this.props.index,
             backgroundImage: 'url("images/' + this.props.image + '")'
@@ -193,6 +195,8 @@ var DraggableCard = React.createClass({
         );
 
         var style = {
+            msTransform: translate,
+            WebkitTransform: translate,
             transform: translate
         };
 

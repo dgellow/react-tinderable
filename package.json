@@ -43,6 +43,9 @@
   },
   "dependencies": {
     "hammerjs": "^2.0.4",
-    "merge": "^1.2.0"
+    "merge": "^1.2.0",
+    "react": "^0.14.6",
+    "react-addons": "^0.9.1-deprecated",
+    "react-dom": "^0.14.6"
   }
 }

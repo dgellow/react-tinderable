@@ -1,6 +1,6 @@
 {
   "name": "react-tinderable",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Tinder-like swipeable component in React",
   "main": "lib/tinderable.js",
   "repository": {

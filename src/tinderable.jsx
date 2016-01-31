@@ -1,5 +1,7 @@
 /*global require,module,setTimeout*/
-var React = require('react/addons'),
+var React = require('react'),
+    ReactDOM = require('react-dom'),
+    addons = require('react-addons'),
     Hammer = require('hammerjs'),
     merge = require('merge');
 
@@ -15,7 +17,7 @@ var Card = React.createClass({
 
     setInitialPosition: function() {
         var screen = document.getElementById('master-root'),
-            card = this.getDOMNode(),
+            card = ReactDOM.findDOMNode(this),
 
             initialPosition = {
                 x: Math.round((screen.offsetWidth - card.offsetWidth) / 2),
@@ -53,7 +55,7 @@ var Card = React.createClass({
             backgroundImage: 'url("images/' + this.props.image + '")'
         }, this.props.style);
 
-        var classes = React.addons.classSet(merge(
+        var classes = addons.classSet(merge(
             {
                 card: true
             },
@@ -88,7 +90,7 @@ var DraggableCard = React.createClass({
 
     resetPosition: function() {
         var screen = document.getElementById('master-root'),
-            card = this.getDOMNode();
+            card = ReactDOM.findDOMNode(this);
 
         var initialPosition = {
             x: Math.round((screen.offsetWidth - card.offsetWidth) / 2),
@@ -118,7 +120,7 @@ var DraggableCard = React.createClass({
         },
         panend: function(ev) {
             var screen = document.getElementById('master-root'),
-                card = this.getDOMNode();
+                card = ReactDOM.findDOMNode(this);
 
             if (this.state.x < -50) {
                 this.props.onOutScreenLeft(this.props.cardId);
@@ -159,7 +161,7 @@ var DraggableCard = React.createClass({
     },
 
     componentDidMount: function() {
-        this.hammer = new Hammer.Manager(this.getDOMNode());
+        this.hammer = new Hammer.Manager(ReactDOM.findDOMNode(this));
         this.hammer.add(new Hammer.Pan({threshold: 0}));
 
         var events = [
@@ -256,25 +258,25 @@ var Tinderable = React.createClass({
             return React.createElement(component, props);
         }, this);
 
-        var classesAlertLeft = React.addons.classSet({
+        var classesAlertLeft = addons.classSet({
             'alert-visible': this.state.alertLeft,
             'alert-left': true,
             'alert': true
         });
-        var classesAlertRight = React.addons.classSet({
+        var classesAlertRight = addons.classSet({
             'alert-visible': this.state.alertRight,
             'alert-right': true,
             'alert': true
         });
 
         return (
-                <div>
+            <div>
                 <div className={classesAlertLeft}>left</div>
                 <div className={classesAlertRight}>right</div>
                 <div id="cards">
-                {cards}
-            </div>
+                    {cards}
                 </div>
+            </div>
         );
     }
 });

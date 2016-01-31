@@ -1,5 +1,6 @@
 /*global require*/
 var React = require('react'),
+    ReactDOM = require('react-dom'),
     Tinderable = require('../../lib/tinderable.js');
 
 var cardsData = [
@@ -29,8 +30,7 @@ var cardsData = [
     }
 ];
 
-    React.render(
-            <Tinderable initialCardsData={cardsData} />,
-
+ReactDOM.render(
+    <Tinderable initialCardsData={cardsData} />,
     document.getElementById('master-root')
 );

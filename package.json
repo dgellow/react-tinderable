@@ -14,8 +14,7 @@
     "examples": "npm run examples:build &&  npm run examples:browser",
     "examples:build": "browserify -e examples/js/index.jsx -t reactify -o examples/bundle-examples.js",
     "examples:watch": "watchify -v -e examples/js/index.jsx -t reactify -o examples/bundle-examples.js",
-    "examples:browser": "browser-sync start --files \"examples/index.html, examples/style.css, examples/bundle-examples.js\" --server --startPath \"/examples/\"",
-    "prepublish": "cp src/tinderable.css lib/  && npm run build"
+    "examples:browser": "browser-sync start --files \"examples/index.html, examples/style.css, examples/bundle-examples.js\" --server --startPath \"/examples/\""
   },
   "author": "Samuel El-Borai <samuel.elborai@gmail.com>",
   "peerDependencies": {
